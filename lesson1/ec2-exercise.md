@@ -5,6 +5,8 @@
 
 ## Launching and Managing an EC2 Instance
 
+- [Solution](ec2-exercise.sh)
+
 **Explanation**: Amazon EC2 allows you to create virtual machines (instances) in the cloud. With the Free Tier, you can launch a t2.micro instance at no cost for eligible accounts.
 **Task**: 1. Log in to the AWS Management Console. 2. Navigate to the EC2 service. 3. Launch an EC2 instance using the following steps:
 

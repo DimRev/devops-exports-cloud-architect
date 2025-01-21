@@ -5,6 +5,8 @@
 
 ## Creating a Simple Pod
 
+- [Solution](k8s-exercise.sh)
+
 - **Explanation**: A Pod is the smallest deployable unit in Kubernetes. It encapsulates one or more containers.
 - **Task**: Use the `kubectl` command to create a Pod running an Nginx container.
 
