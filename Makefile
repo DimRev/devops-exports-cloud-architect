@@ -10,6 +10,8 @@ help:
 	@echo "  custom-docker-image-exercise"
 	@echo "  docker-volumes-exercise"
 	@echo "  container-health-checks-exercise"
+	@echo "  container-resource-limits"
+	@echo "  docker-compose-for-multi-service-apps"
 
 ec2-exercise:
 	@echo "Running EC2 exercises..."
@@ -38,3 +40,11 @@ docker-volumes-exercise:
 container-health-checks-exercise:
 	@echo "Running container-health-checks exercise..."
 	cd ./lesson1/docker-exercise/container-health-checks &&./scripts/run.sh
+
+container-resource-limits:
+	@echo "Running container-resource-limits exercise..."
+	cd ./lesson1/docker-exercise/container-resource-limits && ./scripts/run.sh
+
+docker-compose-for-multi-service-apps:
+	@echo "Running docker-compose-for-multi-service-apps exercise..."
+	cd ./lesson1/docker-exercise/docker-compose-for-multi-service-apps && ./scripts/run.sh

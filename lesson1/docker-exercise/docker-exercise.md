@@ -105,6 +105,8 @@ HEALTHCHECK --interval=30s --timeout=10s CMD curl -f http://localhost || exit 1
 docker run --memory=256m --cpus=1 python:3.9-slim python -c "while True: pass"
 ```
 
+[solution](container-resource-limits/scripts/run.sh)
+
 ## Docker Compose for Multi-Service Apps
 
 - **Explanation**: Docker Compose simplifies managing multi-container applications.
@@ -121,6 +123,8 @@ services:
   redis:
     image: redis:alpine
 ```
+
+[solution](docker-compose-for-multi-service-apps/docker-compose.yaml)
 
 ## Docker Image Scanning
 
