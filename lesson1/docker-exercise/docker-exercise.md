@@ -93,6 +93,8 @@ FROM nginx:alpine
 HEALTHCHECK --interval=30s --timeout=10s CMD curl -f http://localhost || exit 1
 ```
 
+[solution](container-health-checks/Dockerfile)
+
 ## Container Resource Limits
 
 - **Explanation**: Docker allows you to set CPU and memory limits to ensure a container does not exhaust host resources.
