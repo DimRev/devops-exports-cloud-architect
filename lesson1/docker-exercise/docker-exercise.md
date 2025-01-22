@@ -57,6 +57,8 @@ volumes:
   db_data:
 ```
 
+[solution](docker-volumes/docker-compose.yaml)
+
 ## Custom Docker Images
 
 - **Explanation**: You can customize Docker images by modifying their base configuration.
@@ -77,6 +79,8 @@ RUN pip install -r requirements.txt
 COPY . .
 CMD ["python", "app.py"]
 ```
+
+[solution](custom-docker-image/Dockerfile)
 
 ## Container Health Checks
 
