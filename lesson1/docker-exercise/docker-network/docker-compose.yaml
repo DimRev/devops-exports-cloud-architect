@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  web:
+    build:
+      context: ./web
+    container_name: web
+    ports:
+      - '8080:80'
+    networks:
+      - my_network
+
+  backend:
+    build:
+      context: ./backend
+    container_name: backend
+    ports:
+      - '5000:5000'
+    networks:
+      - my_network
+
+  db:
+    build:
+      context: ./db
+    container_name: db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mydb
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
