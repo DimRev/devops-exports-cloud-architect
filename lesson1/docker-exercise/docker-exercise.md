@@ -36,6 +36,8 @@ docker run -d --name web --network my_network nginx
 docker run -d --name backend --network my_network alpine ping backend
 ```
 
+- [Solution](docker-network/docker-compose.yaml)
+
 ## Docker Volumes
 
 - **Explanation**: Volumes provide persistent storage for containers, allowing data to survive when the container stops or restarts.

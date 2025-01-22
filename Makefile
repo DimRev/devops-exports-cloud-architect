@@ -11,3 +11,7 @@ k8s-exercise:
 multi-stage-build-exercise:
 	@echo "Running multi-stage-build exercise..."
 	cd ./lesson1/docker-exercise/multi-stage-build && ./scripts/run.sh
+
+docker-network-exercise:
+	@echo "Running docker-network exercise..."
+	cd ./lesson1/docker-exercise/docker-network &&./scripts/run.sh
