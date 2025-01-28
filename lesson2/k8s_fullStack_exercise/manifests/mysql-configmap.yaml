@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-config
+  namespace: fullstack-app
+data:
+  MYSQL_DATABASE: fullstack-app-db
+  MYSQL_USER: admin
+  
