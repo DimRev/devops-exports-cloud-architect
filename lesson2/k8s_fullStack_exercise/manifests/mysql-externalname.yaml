@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-mysql
+  namespace: fullstack-app
+  labels:
+    app: mysql
+spec:
+  type: ExternalName
+  externalName: mysql.fullstack-app.svc.cluster.local
