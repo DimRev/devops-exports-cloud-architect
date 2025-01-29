@@ -27,50 +27,54 @@ function App() {
   }
 
   return (
-    <div>
+    <div className="app">
       <h2>Todos</h2>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : error ? (
-        <p>Error: {error}</p>
-      ) : (
-        <ul>
-          {todos.map((todo) => (
-            <li key={todo.id}>
-              <h3>{todo.title}</h3>
-              <p>{todo.description}</p>
-              <button
-                onClick={() => handleDeleteTodo(todo.id)}
-                disabled={isDeleting}
-              >
-                {isDeleting ? 'Deleting...' : 'Delete'}
-              </button>
-              <button
-                onClick={() =>
-                  handleUpdateTodo(
-                    todo.id,
-                    prompt('Edit title', todo.title) || todo.title,
-                    prompt('Edit description', todo.description) ||
-                      todo.description
-                  )
-                }
-                disabled={isPutting}
-              >
-                {isPutting ? 'Updating...' : 'Update'}
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
-      <h2>Create Todo</h2>
-      {postError && <p>Error: {postError}</p>}
-      <form onSubmit={handleCreateTodo}>
-        <input type="text" name="title" placeholder="Title" required />
-        <input type="text" name="description" placeholder="Description" />
-        <button type="submit" disabled={isPosting}>
-          {isPosting ? 'Creating...' : 'Create'}
-        </button>
-      </form>
+      <div className="todos-container">
+        {isLoading ? (
+          <p>Loading...</p>
+        ) : error ? (
+          <p>Error: {error}</p>
+        ) : (
+          <ul>
+            {todos.map((todo) => (
+              <li key={todo.id}>
+                <h3>{todo.title}</h3>
+                <p>{todo.description}</p>
+                <button
+                  onClick={() => handleDeleteTodo(todo.id)}
+                  disabled={isDeleting}
+                >
+                  {isDeleting ? 'Deleting...' : 'Delete'}
+                </button>
+                <button
+                  onClick={() =>
+                    handleUpdateTodo(
+                      todo.id,
+                      prompt('Edit title', todo.title) || todo.title,
+                      prompt('Edit description', todo.description) ||
+                        todo.description
+                    )
+                  }
+                  disabled={isPutting}
+                >
+                  {isPutting ? 'Updating...' : 'Update'}
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
+      <div className="create-todo-container">
+        <h2>Create Todo</h2>
+        {postError && <p>Error: {postError}</p>}
+        <form onSubmit={handleCreateTodo} className="create-todo-form">
+          <input type="text" name="title" placeholder="Title" required />
+          <input type="text" name="description" placeholder="Description" />
+          <button type="submit" disabled={isPosting}>
+            {isPosting ? 'Creating...' : 'Create'}
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

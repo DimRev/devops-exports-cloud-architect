@@ -1,35 +1,34 @@
 #!/bin/bash
 
-# Function to clean up background processes on exit
-cleanup() {
-    echo "Stopping Minikube tunnel..."
-    kill $TUNNEL_PID
-    exit 0
-}
-
-# Trap SIGINT (Ctrl+C) and SIGTERM to clean up properly
-trap cleanup SIGINT SIGTERM
-
-# Start Minikube tunnel in the background and store its PID
-echo "Starting Minikube tunnel..."
-(minikube tunnel > /dev/null 2>&1 &) &
-TUNNEL_PID=$!
-echo "Minikube tunnel PID: $TUNNEL_PID"
-
-# Delete the namespace if it exists
 kubectl delete namespace fullstack-app --ignore-not-found=true
 
 # Apply namespace-level resources
+  # GLOBAL
 kubectl apply -f ./manifests/fullstack-namespace.yaml
 kubectl apply -f ./manifests/fullstack-resourcequota.yaml
 
-# Apply ConfigMaps & Secrets
-kubectl apply -f ./manifests/mysql-configmap.yaml
-kubectl apply -f ./manifests/backend-configmap.yaml
-kubectl apply -f ./manifests/mysql-secret.yaml
 
-# Deploy & Expose Database
+# Apply ConfigMaps & Secrets
+  # MYSQL
+kubectl apply -f ./manifests/mysql-configmap.yaml
+kubectl apply -f ./manifests/mysql-secret.yaml
+  # BACKEND
+kubectl apply -f ./manifests/backend-configmap.yaml
+kubectl apply -f ./manifests/backend-secret.yaml
+
+# Deploy & Expose MYSQL
 kubectl apply -f ./manifests/mysql-deployment.yaml
+
+# kubectl wait --for=condition=available --timeout=60s deployment/mysql
+# kubectl exec -it <mysql-pod-name> -n fullstack-app -- bash
+# echo "MySQL is ready. Creating 'todos' table..."
+#   mysql -h 127.0.0.1 -u root -p$MYSQL_ROOT_PASSWORD -D $MYSQL_DATABASE -e "
+#     CREATE TABLE IF NOT EXISTS todos (
+#       id INT AUTO_INCREMENT PRIMARY KEY,
+#       title VARCHAR(255) NOT NULL,
+#       description TEXT
+#     );
+#   "
 kubectl apply -f ./manifests/mysql-service.yaml
 kubectl apply -f ./manifests/mysql-externalname.yaml
 
@@ -40,8 +39,3 @@ kubectl apply -f ./manifests/backend-service.yaml
 # Deploy & Expose Frontend
 kubectl apply -f ./manifests/frontend-deployment.yaml
 kubectl apply -f ./manifests/frontend-service.yaml
-
-echo "Deployment complete! Minikube tunnel is running in the background."
-
-# Keep the script running to maintain the tunnel (if needed)
-wait $TUNNEL_PID

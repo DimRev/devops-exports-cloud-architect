@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: dimrev/l2-react-todo-client:v0.0.3
+        image: dimrev/l2-react-todo-client:v0.0.7
         env:
         - name: VITE_API_URL
           valueFrom:

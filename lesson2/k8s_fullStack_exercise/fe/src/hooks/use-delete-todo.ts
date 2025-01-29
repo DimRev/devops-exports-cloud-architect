@@ -1,18 +1,18 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
 export function useDeleteTodo() {
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   async function deleteTodo(
     id: number,
-    setTodos: React.Dispatch<React.SetStateAction<Todo[]>>,
+    setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
   ) {
-    setIsLoading(true)
-    setError(null)
+    setIsLoading(true);
+    setError(null);
 
     try {
-      setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id)) // Optimistically update
+      setTodos((prevTodos) => prevTodos.filter((todo) => todo.id !== id)); // Optimistically update
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/api/v1/todo/${id}`,
         {
@@ -21,24 +21,24 @@ export function useDeleteTodo() {
             'X-API-KEY': import.meta.env.VITE_API_KEY,
           },
           method: 'DELETE',
-        },
-      )
+        }
+      );
 
       if (!response.ok) {
-        throw new Error('Failed to delete todo')
+        throw new Error('Failed to delete todo');
       }
 
-      return 'Deleted successfully'
+      return 'Deleted successfully';
     } catch (error) {
       if (error instanceof Error) {
-        setError(error.message)
+        setError(error.message);
       } else {
-        setError('An error occurred')
+        setError('An error occurred');
       }
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   }
 
-  return { deleteTodo, isLoading, error }
+  return { deleteTodo, isLoading, error };
 }

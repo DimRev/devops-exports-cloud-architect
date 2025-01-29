@@ -1,17 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 
 export function useGetTodos() {
-  const [todos, setTodos] = useState<Todo[]>([])
-  const [isLoading, setIsLoading] = useState(false)
-  const [error, setError] = useState<string | null>(null)
+  const [todos, setTodos] = useState<Todo[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    getTodos()
-  }, [])
+    getTodos();
+  }, []);
 
   async function getTodos() {
-    setIsLoading(true)
-    setError(null)
+    setIsLoading(true);
+    setError(null);
 
     try {
       const response = await fetch(
@@ -21,20 +21,20 @@ export function useGetTodos() {
             'Content-Type': 'application/json',
             'X-API-KEY': import.meta.env.VITE_API_KEY,
           },
-        },
-      )
-      const data = (await response.json()) as { todos: Todo[] }
-      setTodos(data.todos)
+        }
+      );
+      const data = (await response.json()) as { todos: Todo[] };
+      setTodos(data.todos);
     } catch (error) {
       if (error instanceof Error) {
-        setError(error.message)
+        setError(error.message);
       } else {
-        setError('An error occurred')
+        setError('An error occurred');
       }
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
   }
 
-  return { todos, setTodos, isLoading, error }
+  return { todos, setTodos, isLoading, error };
 }

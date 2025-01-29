@@ -14,6 +14,7 @@ RUN pnpm i
 COPY . .
 
 ENV VITE_API_URL=http://localhost:5000
+ENV VITE_API_KEY=my_api_key
 
 RUN pnpm run build
 

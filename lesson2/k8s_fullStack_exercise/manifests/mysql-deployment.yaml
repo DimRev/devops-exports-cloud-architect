@@ -36,22 +36,5 @@ spec:
             limits:
               memory: "1Gi"
               cpu: "1"
-      initContainers:
-      - name: init-mysql
-        image: mysql:5.7
-        command:
-          - "sh"
-          - "-c"
-          - |
-            echo "Waiting for MySQL to be ready..."
-            until mysqladmin ping -h mysql.fullstack-app.svc.cluster.local --silent; do
-              sleep 2
-            done
-            echo "MySQL is ready. Creating 'todos' table..."
-            mysql -h mysql.fullstack-app.svc.cluster.local -u root -p$MYSQL_ROOT_PASSWORD -D $MYSQL_DATABASE -e "
-              CREATE TABLE IF NOT EXISTS todos (
-                id INT AUTO_INCREMENT PRIMARY KEY,
-                title VARCHAR(255) NOT NULL,
-                description TEXT
-              );
-            "
+
+

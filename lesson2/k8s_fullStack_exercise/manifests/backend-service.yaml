@@ -4,11 +4,10 @@ metadata:
   name: backend
   namespace: fullstack-app
 spec:
-  type: NodePort
+  type: LoadBalancer
   selector:
     app: backend
   ports:
     - protocol: TCP
       port: 5000
       targetPort: 5000
-      nodePort: 31000 
