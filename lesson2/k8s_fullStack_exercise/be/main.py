@@ -11,7 +11,7 @@ CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # Load environment variables
 load_dotenv()
-
+API_KEY = os.environ.get("SERVER_API_KEY")
 # Connect to the MySQL database
 try:
     mydb = mysql.connector.connect(
@@ -37,6 +37,10 @@ def healthz():
 def get_todos():
     qry = "SELECT * FROM todos"
     try:
+        headers = request.headers
+        if headers.get("X-API-KEY") != API_KEY:
+            return jsonify({"error": "Invalid API key"}), 401
+
         cursor = mydb.cursor(dictionary=True)
         cursor.execute(qry)
         rows = cursor.fetchall()
@@ -50,6 +54,10 @@ def get_todos():
 def add_todo():
     qry = "INSERT INTO todos (title, description) VALUES (%s, %s)"
     try:
+        headers = request.headers
+        if headers.get("X-API-KEY") != API_KEY:
+            return jsonify({"error": "Invalid API key"}), 401
+
         title = request.json.get("title")
         description = request.json.get("description")
 
@@ -74,6 +82,10 @@ def add_todo():
 def update_todo(id):
     qry = "UPDATE todos SET title = %s, description = %s WHERE id = %s"
     try:
+        headers = request.headers
+        if headers.get("X-API-KEY") != API_KEY:
+            return jsonify({"error": "Invalid API key"}), 401
+
         title = request.json.get("title")
         description = request.json.get("description")
 
@@ -100,6 +112,10 @@ def update_todo(id):
 def delete_todo(id):
     qry = "DELETE FROM todos WHERE id = %s"
     try:
+        headers = request.headers
+        if headers.get("X-API-KEY") != API_KEY:
+            return jsonify({"error": "Invalid API key"}), 401
+
         cursor = mydb.cursor()
         cursor.execute(qry, (id,))
         mydb.commit()

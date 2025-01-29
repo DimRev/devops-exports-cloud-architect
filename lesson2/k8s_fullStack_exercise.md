@@ -87,12 +87,42 @@ kubectl exec -it <backend-pod> -n fullstack-app -- curl http://mysql:3306
 Please submit the following YAML files:
 
 1. Namespace definition
+
+- [fullstack-namespace.yaml](./k8s_fullStack_exercise/manifests/fullstack-namespace.yaml)
+
 2. Resource Quota definition
+
+- [fullstack-resourcequota.yaml](./k8s_fullStack_exercise/manifests/fullstack-resourcequota.yaml)
+
 3. Secret for MySQL root password
+
+- [mysql-secret.yaml](./k8s_fullStack_exercise/manifests/mysql-secret.yaml)
+
 4. ConfigMap for MySQL configuration
+
+- [mysql-configmap.yaml](./k8s_fullStack_exercise/manifests/mysql-configmap.yaml)
+
 5. MySQL Deployment and Service
+
+- [mysql-deployment.yaml](./k8s_fullStack_exercise/manifests/mysql-deployment.yaml)
+- [mysql-service.yaml](./k8s_fullStack_exercise/manifests/mysql-service.yaml)
+
 6. Backend Deployment and Service
+
+- [backend-deployment.yaml](./k8s_fullStack_exercise/manifests/backend-deployment.yaml)
+- [backend-service.yaml](./k8s_fullStack_exercise/manifests/backend-service.yaml)
+
 7. Frontend Deployment and Service
+
+- [frontend-deployment.yaml](./k8s_fullStack_exercise/manifests/frontend-deployment.yaml)
+- [frontend-service.yaml](./k8s_fullStack_exercise/manifests/frontend-service.yaml)
+
 8. ConfigMap for Backend configuration
+
+- [backend-configmap.yaml](./k8s_fullStack_exercise/manifests/backend-configmap.yaml)
+
 9. Secret for API keys
+
 10. ExternalName Service definition
+
+- [mysql-externalname.yaml](./k8s_fullStack_exercise/manifests/mysql-externalname.yaml)
