@@ -123,6 +123,12 @@ Please submit the following YAML files:
 
 9. Secret for API keys
 
+- [backend-secret.yaml](./k8s_fullStack_exercise/manifests/backend-secret.yaml)
+
 10. ExternalName Service definition
 
 - [mysql-externalname.yaml](./k8s_fullStack_exercise/manifests/mysql-externalname.yaml)
+
+**INIT SCRIPT** : The following script will apply all the resources in order, and run the minikube tunnel in the background.
+
+- [run.sh](./k8s_fullStack_exercise/scripts/run.sh)
