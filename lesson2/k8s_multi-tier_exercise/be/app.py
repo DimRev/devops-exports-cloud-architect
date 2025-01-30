@@ -2,11 +2,13 @@ import os
 import redis
 import logging
 from flask import Flask, jsonify
-
+from flask_cors import CORS
 # Configure logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
 app = Flask(__name__)
+
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Read Redis connection settings from environment variables
 REDIS_HOST = os.getenv("REDIS_HOST", "localhost")

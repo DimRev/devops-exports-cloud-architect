@@ -39,3 +39,5 @@ kubectl apply -f ./manifests/backend-service.yaml
 # Deploy & Expose Frontend
 kubectl apply -f ./manifests/frontend-deployment.yaml
 kubectl apply -f ./manifests/frontend-service.yaml
+
+minikube tunnel

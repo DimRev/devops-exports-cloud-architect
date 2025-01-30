@@ -1,5 +1,8 @@
 # Kubernetes (K8S) YAML Exercise: Multi-Tier Web Application Deployment on Minikube
 
+![multi-tier-app-set](./assets/multi-tier-app-1.png)
+![multi-tier-app-get](./assets/multi-tier-app-3.png)
+
 This exercise will guide you through deploying a multi-tier web application using Kubernetes (K8S) on Minikube. The application will include a Redis cache, a backend server, and a frontend server. You will learn to work with deployments, pods, replicas, namespaces, resource quotas, services, ConfigMaps, and Secrets.
 
 ## Prerequisites
@@ -86,11 +89,42 @@ kubectl exec -it <backend-pod> -n multi-tier-app -- curl http://redis:6379
 Please submit the following YAML files:
 
 1. Namespace definition
+
+- [namespace.yaml](./k8s_multi-tier_exercise/manifests/mta/multi-tier-app-namespace.yaml)
+
 2. Resource Quota definition
+
+- [namespace.yaml](./k8s_multi-tier_exercise/manifests/mta/multi-tier-app-resourcequota.yaml)
+
 3. ConfigMap for Redis configuration
+
+- [redis-configmap.yaml](./k8s_multi-tier_exercise/manifests/redis/redis-configmap.yaml)
+
 4. Redis Deployment and Service
+
+- [redis-deployment.yaml](./k8s_multi-tier_exercise/manifests/redis/redis-deployment.yaml)
+- [redis-service.yaml](./k8s_multi-tier_exercise/manifests/redis/redis-service.yaml)
+
 5. Backend Deployment and Service
+
+- [backend-deployment.yaml](./k8s_multi-tier_exercise/manifests/backend/backend-deployment.yaml)
+- [backend-service.yaml](./k8s_multi-tier_exercise/manifests/backend/backend-service.yaml)
+
 6. Frontend Deployment and Service
+
+- [frontend-deployment.yaml](./k8s_multi-tier_exercise/manifests/frontend/frontend-deployment.yaml)
+- [frontend-service.yaml](./k8s_multi-tier_exercise/manifests/frontend/frontend-service.yaml)
+
 7. ConfigMap for Backend configuration
+
+- [backend-configmap.yaml](./k8s_multi-tier_exercise/manifests/backend/backend-configmap.yaml)
+- [redis-configmap.yaml](./k8s_multi-tier_exercise/manifests/redis/redis-configmap.yaml)
+
 8. Secret for sensitive information
 9. ExternalName Service definition
+
+- [external-name-service.yaml](./k8s_multi-tier_exercise/manifests/redis/redis-externalname.yaml)
+
+**INIT SCRIPT** : The following script will apply all the resources in order, and run the minikube tunnel in the background.
+
+- [run.sh](./k8s_multi-tier_exercise/scripts/run.sh)

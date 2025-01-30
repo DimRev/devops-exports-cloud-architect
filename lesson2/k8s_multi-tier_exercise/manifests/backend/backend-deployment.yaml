@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: dimrev/l2-py-redis-server:v0.0.3
+        image: dimrev/l2-py-redis-server:v0.0.4
         resources:
           limits:
             memory: "128Mi"
