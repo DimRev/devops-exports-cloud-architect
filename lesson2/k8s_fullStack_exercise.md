@@ -4,6 +4,10 @@
 
 ![fullstack-app](./assets/fullstack-app.png)
 
+## Structure
+
+![fullstack-app-structure](./assets/fullstack-app-diagram.png)
+
 This exercise will guide you through deploying a simple full-stack application using Kubernetes (K8S) on Minikube. The application will include a database, a backend server, and a frontend server. You will learn to work with deployments, pods, replicas, namespaces, resource quotas, services, ConfigMaps, and Secrets.
 
 ## Prerequisites

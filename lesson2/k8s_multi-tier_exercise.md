@@ -3,6 +3,10 @@
 ![multi-tier-app-set](./assets/multi-tier-app-1.png)
 ![multi-tier-app-get](./assets/multi-tier-app-3.png)
 
+## Structure
+
+![multi-tier-app-structure](./assets/multi-tier-diagram.png)
+
 This exercise will guide you through deploying a multi-tier web application using Kubernetes (K8S) on Minikube. The application will include a Redis cache, a backend server, and a frontend server. You will learn to work with deployments, pods, replicas, namespaces, resource quotas, services, ConfigMaps, and Secrets.
 
 ## Prerequisites
