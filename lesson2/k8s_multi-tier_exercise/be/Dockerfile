@@ -8,7 +8,7 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-ENV REDIS_HOST=localhost
+ENV REDIS_HOST=my-redis
 ENV REDIS_PORT=6379
 ENV REDIS_DB=0
 
