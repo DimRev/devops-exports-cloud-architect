@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-config
+  namespace: multi-tier-app
+data:
+  REDIS_MAXMEMORY: "256mb"
+  REDIS_MAXCLIENTS: "100"
+  REDIS_HOST: "redis"
+  REDIS_PORT: "6379"
+  REDIS_DB : "0"

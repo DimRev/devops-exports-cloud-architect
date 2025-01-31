@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: fullstack-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: dimrev/l2-react-todo-client:v0.0.7
+        env:
+        - name: VITE_API_URL
+          valueFrom:
+            configMapKeyRef:
+              name: backend-config
+              key: SERVER_API
+        - name: VITE_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: backend-secret
+              key: SERVER_API_KEY
+        ports:
+        - containerPort: 80
+        resources:
+            requests:
+              memory: "512Mi"
+              cpu: "500m"
+            limits:
+              memory: "1Gi"
+              cpu: "1"

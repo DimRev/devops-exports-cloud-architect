@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo
+  namespace: secure-app
+spec:
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      labels:
+        app: mongo
+    spec:
+      containers:
+      - name: mongo
+        image: mongo:5.0
+        env:
+          - name: MONGO_INITDB_ROOT_USERNAME
+            valueFrom:
+              configMapKeyRef:
+                name: mongo-config
+                key: MONGO_INITDB_ROOT_USERNAME
+          - name: MONGO_INITDB_ROOT_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mongo-secret
+                key: MONGO_INITDB_ROOT_PASSWORD
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 27017
