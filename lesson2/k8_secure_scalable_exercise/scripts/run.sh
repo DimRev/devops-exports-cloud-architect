@@ -24,4 +24,6 @@ kubectl apply -f ./manifests/backend/backend-service.yaml
 kubectl apply -f ./manifests/frontend/frontend-deployment.yaml
 kubectl apply -f ./manifests/frontend/frontend-service.yaml
 
+kubectl get services -n secure-app
+
 minikube tunnel
