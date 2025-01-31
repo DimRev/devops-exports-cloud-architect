@@ -21,8 +21,19 @@ make help
 ### Lesson 2
 
 - [Lesson 2 - K8s Fullstack App Exercise](lesson2/k8s_fullStack_exercise.md)
+
+```bash
+make l2-fullstack-app
+```
+
 - [Lesson 2 - K8s Multi Tier App Exercise](lesson2/k8s_multi-tier_exercise.md)
+
+```bash
+make l2-multi-tier-app
+```
+
 - [Lesson 2 - K8s Secure Scalable App Exercise](lesson2/k8s_secure_scalable_exercise.md)
 
-  
-  Use the Makefile to run the exercises.
+```bash
+make l2-secure-app
+```

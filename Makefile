@@ -3,48 +3,64 @@
 help:
 	@echo "Usage: make [target]"
 	@echo "Lesson1:"
-	@echo "  ec2-exercise"
-	@echo "  k8s-exercise"
-	@echo "  multi-stage-build-exercise"
-	@echo "  docker-network-exercise"
-	@echo "  custom-docker-image-exercise"
-	@echo "  docker-volumes-exercise"
-	@echo "  container-health-checks-exercise"
-	@echo "  container-resource-limits"
-	@echo "  docker-compose-for-multi-service-apps"
+	@echo "  l1-ec2-exercise"
+	@echo "  l1-k8s-exercise"
+	@echo "  l1-multi-stage-build-exercise"
+	@echo "  l1-docker-network-exercise"
+	@echo "  l1-custom-docker-image-exercise"
+	@echo "  l1-docker-volumes-exercise"
+	@echo "  l1-container-health-checks-exercise"
+	@echo "  l1-container-resource-limits"
+	@echo "  l1-docker-compose-for-multi-service-apps"
+	@echo "Lesson2:"
+	@echo "  l2-secure-app"
+	@echo "  l2-fullstack-app"
+	@echo "  l2-multi-tier-app"
 
-ec2-exercise:
-	@echo "Running EC2 exercises..."
+l1-ec2-exercise:
+	@echo "[LESSON1] Running EC2 exercises..."
 	@./lesson1/ec2-exercise.sh
 
-k8s-exercise:
-	@echo "Running K8s exercises..."
+l1-k8s-exercise:
+	@echo "[LESSON1] Running K8s exercises..."
 	@./lesson1/k8s-exercise.sh
 
-multi-stage-build-exercise:
-	@echo "Running multi-stage-build exercise..."
+l1-multi-stage-build-exercise:
+	@echo "[LESSON1] Running multi-stage-build exercise..."
 	cd ./lesson1/docker-exercise/multi-stage-build && ./scripts/run.sh
 
-docker-network-exercise:
-	@echo "Running docker-network exercise..."
+l1-docker-network-exercise:
+	@echo "[LESSON1] Running docker-network exercise..."
 	cd ./lesson1/docker-exercise/docker-network &&./scripts/run.sh
 
-custom-docker-image-exercise:
-	@echo "Running custom-docker-image exercise..."
+l1-custom-docker-image-exercise:
+	@echo "[LESSON1] Running custom-docker-image exercise..."
 	cd ./lesson1/docker-exercise/custom-docker-image &&./scripts/run.sh
 
-docker-volumes-exercise:
-	@echo "Running docker-volumes exercise..."
+l1-docker-volumes-exercise:
+	@echo "[LESSON1] Running docker-volumes exercise..."
 	cd ./lesson1/docker-exercise/docker-volumes &&./scripts/run.sh
-	
-container-health-checks-exercise:
-	@echo "Running container-health-checks exercise..."
+
+l1-container-health-checks-exercise:
+	@echo "[LESSON1] Running container-health-checks exercise..."
 	cd ./lesson1/docker-exercise/container-health-checks &&./scripts/run.sh
 
-container-resource-limits:
-	@echo "Running container-resource-limits exercise..."
+l1-container-resource-limits:
+	@echo "[LESSON1] Running container-resource-limits exercise..."
 	cd ./lesson1/docker-exercise/container-resource-limits && ./scripts/run.sh
 
-docker-compose-for-multi-service-apps:
-	@echo "Running docker-compose-for-multi-service-apps exercise..."
+l1-docker-compose-for-multi-service-apps:
+	@echo "[LESSON1] Running docker-compose-for-multi-service-apps exercise..."
 	cd ./lesson1/docker-exercise/docker-compose-for-multi-service-apps && ./scripts/run.sh
+
+l2-secure-app:
+	@echo "[LESSON2] Running secure-app exercise..."
+	cd ./lesson2/k8_secure_scalable_exercise && ./scripts/run.sh
+
+l2-fullstack-app:
+	@echo "[LESSON2] Running fullstack-app exercise..."
+	cd ./lesson2/k8s_fullStack_exercise && ./scripts/run.sh
+
+l2-multi-tier-app:
+	@echo "[LESSON2] Running multi-tier-app exercise..."
+	cd ./lesson2/k8s_multi-tier_exercise && ./scripts/run.sh
