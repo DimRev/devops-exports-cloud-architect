@@ -20,4 +20,5 @@ kubectl apply -f manifests/frontend/frontend-deployment.yaml
 kubectl apply -f manifests/frontend/frontend-service.yaml
 
 kubectl get services -n multi-tier-app
+
 minikube tunnel
