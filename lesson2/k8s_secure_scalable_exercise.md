@@ -2,6 +2,8 @@
 
 [back](../README.md)
 
+![secure-app](./assets/secure-app.png)
+
 This exercise will guide you through deploying a secure and scalable web application using Kubernetes (K8S) on Minikube. The application will include a MongoDB database, a backend server, and a frontend server. You will also learn to work with RBAC permissions in namespaces, perform health checks, and manage replicas.
 
 ## Prerequisites
@@ -104,13 +106,47 @@ kubectl exec -it <backend-pod> -n secure-app -- curl http://mongodb:27017
 Please submit the following YAML files:
 
 1. Namespace definition
+
+- [secure-app-namespace.yaml](./k8_secure_scalable_exercise/manifests/ns/secure-app-namespace.yaml)
+
 2. Resource Quota definition
+
+- [secure-app-resourcequota](./k8_secure_scalable_exercise/manifests/ns/secure-app-resourcequota.yaml)
+
 3. Role and RoleBinding definitions
+
+- [secure-app-role.yaml](./k8_secure_scalable_exercise/manifests/ns/secure-app-role.yaml)
+- [secure-app-rolebinding.yaml](./k8_secure_scalable_exercise/manifests/ns/secure-app-rolebinding.yaml)
+
 4. Secret for MongoDB credentials
+
+- [mongo-secret.yaml](./k8_secure_scalable_exercise/manifests/mongo/mongo-secret.yaml)
+
 5. ConfigMap for MongoDB configuration
+
+- [mongo-configmap.yaml](./k8_secure_scalable_exercise/manifests/mongo/mongo-configmap.yaml)
+
 6. MongoDB Deployment and Service
+
+- [mongo-deployment.yaml](./k8_secure_scalable_exercise/manifests/mongo/mongo-deployment.yaml)
+
 7. Backend Deployment and Service with health checks
+
+- [backend-deployment.yaml](./k8_secure_scalable_exercise/manifests/backend/backend-deployment.yaml)
+- [backend-service.yaml](./k8_secure_scalable_exercise/manifests/backend/backend-service.yaml)
+
 8. Frontend Deployment and Service with health checks
+
+- [frontend-deployment.yaml](./k8_secure_scalable_exercise/manifests/frontend/frontend-deployment.yaml)
+- [frontend-service.yaml](./k8_secure_scalable_exercise/manifests/frontend/frontend-service.yaml)
+
 9. ConfigMap for Backend configuration
+
+- [backend-configmap.yaml](./k8_secure_scalable_exercise/manifests/backend/backend-configmap.yaml)
+
 10. Secret for API keys
 11. ExternalName Service definition
+
+**INIT SCRIPT** : The following script will apply all the resources in order, and run the minikube tunnel in the background.
+
+- [run.sh](./k8_secure_scalable_exercise/scripts/run.sh)
