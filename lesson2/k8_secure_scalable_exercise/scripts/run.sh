@@ -10,6 +10,7 @@ kubectl apply -f ./manifests/ns/secure-app-rolebinding.yaml
 kubectl apply -f ./manifests/mongo/mongo-configmap.yaml
 kubectl apply -f ./manifests/mongo/mongo-secret.yaml
 kubectl apply -f ./manifests/backend/backend-configmap.yaml
+kubectl apply -f ./manifests/backend/backend-secret.yaml
 
 # Mongo
 kubectl apply -f ./manifests/mongo/mongo-deployment.yaml

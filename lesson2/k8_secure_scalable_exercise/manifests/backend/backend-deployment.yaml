@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: dimrev/l2-py-secure-server:v0.0.6
+        image: dimrev/l2-py-secure-server:v0.0.7
         resources:
           limits:
             memory: "128Mi"
@@ -43,6 +43,11 @@ spec:
               configMapKeyRef:
                 name: backend-config
                 key: SERVER_PORT
+          - name: SERVER_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: backend-secret
+                key: SERVER_API_KEY
         ports:
         - containerPort: 5000
 

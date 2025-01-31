@@ -16,7 +16,10 @@ export function useDeleteItem() {
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/api/items/${id}`,
         {
-          headers: { 'Content-Type': 'application/json' },
+          headers: {
+            'Content-Type': 'application/json',
+            'X-API-KEY': import.meta.env.VITE_API_KEY,
+          },
           method: 'DELETE',
         }
       );

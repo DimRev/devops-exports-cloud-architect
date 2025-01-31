@@ -14,6 +14,7 @@ app = Flask(__name__)
 # MongoDB Configuration
 MONGO_URI = os.environ.get("MONGO_URI", "mongodb://localhost:27017/testdb")
 SERVER_PORT = os.environ.get("SERVER_PORT", 5000)
+SERVER_API_KEY = os.environ.get("SERVER_API_KEY", "my_api_key")
 
 app.config["MONGO_URI"] = MONGO_URI
 
@@ -41,6 +42,10 @@ def healthz():
 @app.route("/api/items", methods=["POST"])
 def create_item():
     try:
+        headers = request.headers
+        if headers.get("X-API-KEY") != SERVER_API_KEY:
+            return jsonify({"error": "Invalid API key"}), 401
+
         data = request.json
         if not data or "name" not in data:
             return jsonify({"error": "Invalid data"}), 400
@@ -71,6 +76,10 @@ def create_item():
 @app.route("/api/items", methods=["GET"])
 def get_items():
     try:
+        headers = request.headers
+        if headers.get("X-API-KEY") != SERVER_API_KEY:
+            return jsonify({"error": "Invalid API key"}), 401
+
         items = list(collection.find({}, {"_id": 1, "name": 1, "description": 1}))
         for item in items:
             item["_id"] = str(item["_id"])  # Convert ObjectId to string
@@ -83,6 +92,10 @@ def get_items():
 @app.route("/api/items/<string:item_id>", methods=["GET"])
 def get_item(item_id):
     try:
+        headers = request.headers
+        if headers.get("X-API-KEY") != SERVER_API_KEY:
+            return jsonify({"error": "Invalid API key"}), 401
+
         obj_id = ObjectId(item_id)
         item = collection.find_one({"_id": obj_id})
         if not item:
@@ -98,6 +111,10 @@ def get_item(item_id):
 @app.route("/api/items/<string:item_id>", methods=["PUT"])
 def update_item(item_id):
     try:
+        headers = request.headers
+        if headers.get("X-API-KEY") != SERVER_API_KEY:
+            return jsonify({"error": "Invalid API key"}), 401
+
         data = request.json
         if not data:
             return jsonify({"error": "No data provided"}), 400
@@ -123,6 +140,10 @@ def update_item(item_id):
 @app.route("/api/items/<string:item_id>", methods=["DELETE"])
 def delete_item(item_id):
     try:
+        headers = request.headers
+        if headers.get("X-API-KEY") != SERVER_API_KEY:
+            return jsonify({"error": "Invalid API key"}), 401
+
         obj_id = ObjectId(item_id)
         result = collection.delete_one({"_id": obj_id})
         if result.deleted_count == 0:
