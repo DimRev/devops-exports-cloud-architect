@@ -12,6 +12,14 @@ You can use the Makefile to quickly run the solutions for the exercises.
 make help
 ```
 
+## Summary
+
+- [Lesson 1](./summery/Lesson1.md)
+- [Lesson 2](./summery/Lesson2.md)
+- [Lesson 3](./summery/Lesson3.md)
+
+## Exercises
+
 ### Lesson 1
 
 - [Lesson 1 - K8s Exercise](lesson1/k8s-exercise.md)

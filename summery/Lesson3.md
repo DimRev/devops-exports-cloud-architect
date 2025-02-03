@@ -1,3 +1,7 @@
+# Manage Kubernetes - Part 2
+
+- [back](../README.md)
+
 <u><b>Where did we stop?</b></u>
 Last lesson we've talked about different k8s resources we spoke about configmaps secrets, namespaces and we've started talking about e2e app with a flask backend.
 
