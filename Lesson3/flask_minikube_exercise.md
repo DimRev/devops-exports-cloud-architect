@@ -91,22 +91,36 @@ Example API response from `worker-service`:
 1. Build the Flask Applications
 
 - Implement `web-service` and `worker-service` according to the details above.
+- [web-service](./web_service/main.py)
+- [worker-service](./worker_service/main.py)
 
 2. Containerization
 
 - Create a Dockerfile for each service. Ensure efficient image size (avoid unnecessary dependencies).
+- [web-service-Dockerfile](./web_service/Dockerfile)
+- [worker-service-Dockerfile](./worker_service/Dockerfile)
 
 3. Push Images to AWS ECR
 
 - Tag and push both images to AWS ECR. Ensure Kubernetes can pull images from ECR.
+  ![build_and_push](./assets/build_and_push.png)
 
 4. Deploy to Minikube
 
 - Create a Namespace.
+- [namespace.yaml](./manifests/global/l3-assignment-namespace.yaml)
+- ![namespace](./assets/namespace.png)
 - Deploy both services using Kubernetes Deployments.
+- [web-service-deployment.yaml](./manifests/web-service/web-service-deployment.yaml)
+- [worker-service-deployment.yaml](./manifests/worker-service/worker-service-deployment.yaml)
 - Set up a ClusterIP service for `worker-service`.
+- [worker-service-service.yaml](./manifests/worker-service/worker-service-service.yaml)
 - Set up a NodePort service for `web-service`.
+- [web-service-service.yaml](./manifests/web-service/web-service-service.yaml)
+- ![service_and_pods](./assets/services_and_pods.png)
 - Ensure that `web-service` correctly resolves the DNS name of `worker-service`.
+
+- ![postman](./assets/postman.png)
 
 5. Security Scan
 
