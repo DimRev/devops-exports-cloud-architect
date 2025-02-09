@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-service
+  namespace: l3-assignment
+spec:
+  selector:
+    matchLabels:
+      app: web-service
+  template:
+    metadata:
+      labels:
+        app: web-service
+    spec:
+      imagePullSecrets:
+        - name: erc-secret
+      containers:
+      - name: web-service
+        image: <account_id>.dkr.ecr.<region>.amazonaws.com/l3-web-service:latest
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5000
+        env:
+          - name: WORKER_SERVICE_URI
+            value: "http://worker-service:5001"
+
