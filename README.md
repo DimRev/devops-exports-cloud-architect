@@ -1,5 +1,17 @@
 # DevOps Exports Cloud Architect
 
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Lesson Summaries](#lesson-summaries)
+  - [Lesson 1](#lesson-1)
+  - [Lesson 2](#lesson-2)
+  - [Lesson 3](#lesson-3)
+- [Exercises](#exercises)
+  - [Lesson 1](#lesson-1-1)
+  - [Lesson 2](#lesson-2-1)
+  - [Lesson 3](#lesson-3-1)
+
 ## Introduction
 
 This repository contains the source code for the DevOps Exports Cloud Architect.
@@ -12,11 +24,25 @@ You can use the Makefile to quickly run the solutions for the exercises.
 make help
 ```
 
-## Summary
+## Lesson Summaries
 
-- [Lesson 1](./summery/Lesson1.md)
-- [Lesson 2](./summery/Lesson2.md)
-- [Lesson 3](./summery/Lesson3.md)
+### Lesson 1
+
+Intro to Cloud Architecture, EC2, Docker, Kubernetes.
+
+- [Summary](./summery/Lesson1.md)
+
+### Lesson 2
+
+Intro to Kubernetes and its components.
+
+- [Summary](./summery/Lesson2.md)
+
+### Lesson 3
+
+Hosting app via ECR and running it via k8s.
+
+- [Summary](./summery/Lesson3.md)
 
 ## Exercises
 
@@ -45,3 +71,7 @@ make l2-multi-tier-app
 ```bash
 make l2-secure-app
 ```
+
+### Lesson 3
+
+- [Lesson 3 - Flask minikube exercise](Lesson3/flask_minikube_exercise.md)
