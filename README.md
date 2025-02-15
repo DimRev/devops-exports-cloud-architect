@@ -7,6 +7,7 @@
   - [Lesson 1](#lesson-1)
   - [Lesson 2](#lesson-2)
   - [Lesson 3](#lesson-3)
+  - [Lesson 4](#lesson-4)
 - [Exercises](#exercises)
   - [Lesson 1](#lesson-1-1)
   - [Lesson 2](#lesson-2-1)
@@ -43,6 +44,12 @@ Intro to Kubernetes and its components.
 Hosting app via ECR and running it via k8s.
 
 - [Summary](./summery/Lesson3.md)
+
+### Lesson 4
+
+Kubernetes components.
+
+- [Summary](./summery/Lesson4.md)
 
 ## Exercises
 
