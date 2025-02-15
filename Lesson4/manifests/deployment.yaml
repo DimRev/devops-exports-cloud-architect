@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-server
+  namespace: flask-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask-server
+  template:
+    metadata:
+      labels:
+        app: flask-server
+    spec:
+      containers:
+      - name: flask-server
+        image: dimrev/l4-flask-app:v0.0.2
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 5000
+        env:
+        - name: APP_ENV
+          valueFrom:
+            configMapKeyRef:
+              name: flask-config
+              key: APP_ENV
+        - name: LOG_LEVEL
+          valueFrom:
+            configMapKeyRef:
+              name: flask-config
+              key: LOG_LEVEL
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: flask-secret
+              key: DB_PASSWORD
+        volumeMounts:
+        - name: logs-volume
+          mountPath: /app/logs
+      volumes:
+      - name: logs-volume
+        persistentVolumeClaim:
+          claimName: flask-logs-pvc
