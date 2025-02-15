@@ -1,0 +1,20 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: python-cronjob
+spec:
+  schedule: "*/1 * * * *"  # Runs every 5 minutes
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: python-cronjob-container
+            image: dimrev/py-cron-log-script:latest  # Replace with your Docker image name
+            volumeMounts:
+            - name: logs
+              mountPath: /app/logs
+          restartPolicy: OnFailure
+          volumes:
+          - name: logs
+            emptyDir: {}

@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chinese-deployment
+  labels:
+    app: chinese
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: chinese
+  template:
+    metadata:
+      labels:
+        app: chinese
+    spec:
+      containers:
+      - name: chinese-container
+        image: nginx
+        ports:
+        - containerPort: 80

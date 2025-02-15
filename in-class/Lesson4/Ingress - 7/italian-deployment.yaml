@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: italian-deployment
+  labels:
+    app: italian
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: italian
+  template:
+    metadata:
+      labels:
+        app: italian
+    spec:
+      containers:
+      - name: italian-container
+        image: nginx
+        ports:
+        - containerPort: 80
