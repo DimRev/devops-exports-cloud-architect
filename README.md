@@ -12,6 +12,7 @@
   - [Lesson 1](#lesson-1-1)
   - [Lesson 2](#lesson-2-1)
   - [Lesson 3](#lesson-3-1)
+  - [Lesson 4](#lesson-4-1)
 
 ## Introduction
 
@@ -82,3 +83,7 @@ make l2-secure-app
 ### Lesson 3
 
 - [Lesson 3 - Flask minikube exercise](Lesson3/flask_minikube_exercise.md)
+
+### Lesson 4
+
+- [Lesson 4 - Stateful Set, Daemon Set, Cron, Volumes](Lesson4/statefulset_daemonset_exercise.md)
