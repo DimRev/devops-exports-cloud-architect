@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: flask-healthcheck
+  namespace: flask-app
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: healthcheck
+            image: curlimages/curl:latest
+            command:
+            - "/bin/sh"
+            - "-c"
+            - "curl -s -o /dev/null -w '%{http_code}' http://flask-server.flask-app.svc.cluster.local/healthz | grep 200 || echo 'Health check failed'"

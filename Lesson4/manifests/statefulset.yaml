@@ -1,20 +1,21 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: flask-server
+  name: flask-server-stateful
   namespace: flask-app
 spec:
+  serviceName: flask-server-stateful
   replicas: 2
   selector:
     matchLabels:
-      app: flask-server
+      app: flask-server-stateful
   template:
     metadata:
       labels:
-        app: flask-server
+        app: flask-server-stateful
     spec:
       containers:
-      - name: flask-server
+      - name: flask-server-stateful
         image: dimrev/l4-flask-app:v0.0.3
         resources:
           limits:
@@ -41,7 +42,11 @@ spec:
         volumeMounts:
         - name: logs-volume
           mountPath: /app/logs
-      volumes:
-      - name: logs-volume
-        persistentVolumeClaim:
-          claimName: flask-logs-pvc
+  volumeClaimTemplates:
+  - metadata:
+      name: logs-volume
+    spec:
+      accessModes: ["ReadWriteOnce"]
+      resources:
+        requests:
+          storage: 1Gi
