@@ -1,6 +1,7 @@
 import logging
 import os
-from flask import Flask, render_template_string
+import re
+from flask import Flask, render_template_string, Response
 
 # Load environment variables from Kubernetes ConfigMap and Secret
 APP_ENV = os.getenv("APP_ENV", "production")  # Default to 'production'
@@ -47,6 +48,23 @@ def index():
 def healthz():
     logger.info("Healthz route accessed")
     return "OK"
+
+def remove_ansi_escape_codes(text):
+    """Removes ANSI escape codes (e.g., color codes) from logs."""
+    ansi_escape = re.compile(r'\x1B(?:[@-Z\\-_]|\[[0-?]*[ -/]*[@-~])')
+    return ansi_escape.sub('', text)
+
+@app.route("/logs")
+def logs():
+    logger.info("Logs route accessed")
+    try:
+        with open(LOG_FILE, "r") as f:
+            log_data = f.readlines()
+        # Remove ANSI codes and wrap logs in HTML formatting
+        formatted_logs = "<br>".join(remove_ansi_escape_codes(line) for line in log_data)
+        return Response(f"<pre>{formatted_logs}</pre>", mimetype="text/html")
+    except Exception as e:
+        return f"Error reading log file: {str(e)}", 500
 
 if __name__ == "__main__":
     logger.info("Starting Flask server")

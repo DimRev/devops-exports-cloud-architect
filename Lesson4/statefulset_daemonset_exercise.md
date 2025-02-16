@@ -39,6 +39,7 @@ Deploy a Flask application on a local Minikube cluster while implementing Namesp
      Create a PersistentVolume (PV) and PersistentVolumeClaim (PVC) for storing logs or data. Ensure your Deployment mounts this volume.
      - [pv.yaml](./manifests/pv.yaml)
      - [pvc.yaml](./manifests/pvc.yaml)
+     - ![logs](assets/logs.png)
    - Step 8: Deploy a StatefulSet
      Convert the Deployment to a StatefulSet. It should maintain a stable network identity for each pod and attach a PersistentVolumeClaim per replica.
      - [statefulset.yaml](./manifests/statefulset.yaml)

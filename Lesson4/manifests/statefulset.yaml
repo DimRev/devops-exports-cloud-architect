@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: flask-server-stateful
-        image: dimrev/l4-flask-app:v0.0.3
+        image: dimrev/l4-flask-app:v0.0.5
         resources:
           limits:
             memory: "128Mi"
