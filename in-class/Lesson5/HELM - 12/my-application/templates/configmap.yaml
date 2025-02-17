@@ -1,0 +1,6 @@
+kind: ConfigMap
+apiVersion: v1
+metadata:
+  name: {{ include "my-application.fullname" . }}
+data:
+  myKey: {{ .Values.configmap.myKey | quote}}
