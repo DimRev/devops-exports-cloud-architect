@@ -121,16 +121,16 @@ Terraform is an infrastruction as code tool, via terraform we can define the end
 
 ```tf
 provider "aws" {
-  region = "us-east-1"
+  region = "us-east-1"
 }
 
 resource "aws_instance" "example" {
-  ami           = "ami-04b4f1a9cf54c11d0"
-  instance_type = "t2.micro"
+  ami           = "ami-04b4f1a9cf54c11d0"
+  instance_type = "t2.micro"
 }
 
 output "instance_ip" {
-  value = aws_instance.example.public_ip
+  value = aws_instance.example.public_ip
 }
 ```
 
@@ -168,10 +168,10 @@ The problem we have at the moment with our terraform file is that everything is 
 
 ```tf
 locals {
-  common_tags = {
-    Name = "Example"
-    Environment = "Production"
-    Owner       = "DevOps Team"
-  }
+  common_tags = {
+    Name = "Example"
+    Environment = "Production"
+    Owner       = "DevOps Team"
+  }
 }
 ```
