@@ -9,11 +9,13 @@
   - [Lesson 3](#lesson-3)
   - [Lesson 4](#lesson-4)
   - [Lesson 5](#lesson-5)
+  - [Lesson 6](#lesson-6)
 - [Exercises](#exercises)
   - [Lesson 1](#lesson-1-1)
   - [Lesson 2](#lesson-2-1)
   - [Lesson 3](#lesson-3-1)
   - [Lesson 4](#lesson-4-1)
+  - [Lesson 6](#lesson-6-1)
 
 ## Introduction
 
@@ -59,6 +61,12 @@ Kubernetes components P2.
 
 - [Summary](./summery/Lesson5.md)
 
+### Lesson 6
+
+AWS CLI, S3, EC2, IAM, Terraform.
+
+- [Summary](./summery/Lesson6.md)
+
 ## Exercises
 
 ### Lesson 1
@@ -89,8 +97,12 @@ make l2-secure-app
 
 ### Lesson 3
 
-- [Lesson 3 - Flask minikube exercise](Lesson3/flask_minikube_exercise.md)
+- [Lesson 3 - Flask minikube exercise](lesson3/flask_minikube_exercise.md)
 
 ### Lesson 4
 
-- [Lesson 4 - Stateful Set, Daemon Set, Cron, Volumes](Lesson4/statefulset_daemonset_exercise.md)
+- [Lesson 4 - Stateful Set, Daemon Set, Cron, Volumes](lesson4/statefulset_daemonset_exercise.md)
+
+### Lesson 6
+
+- [Lesson 6 - Terraform](lesson6/terraform_exercise.md)

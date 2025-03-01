@@ -1,5 +1,7 @@
 # Kubernetes Components
 
+- [back](../README.md)
+
 This is our continuation of Kubernetes components, together with connecting them into our cloud, today we're going to make those connections.
 
 We've stopped with vertical and horizontal pod auto-scaling, what does that mean:
