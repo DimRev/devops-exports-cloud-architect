@@ -10,6 +10,7 @@
   - [Lesson 4](#lesson-4)
   - [Lesson 5](#lesson-5)
   - [Lesson 6](#lesson-6)
+  - [Lesson 7](#lesson-7)
 - [Exercises](#exercises)
   - [Lesson 1](#lesson-1-1)
   - [Lesson 2](#lesson-2-1)
@@ -66,6 +67,12 @@ Kubernetes components P2.
 AWS CLI, S3, EC2, IAM, Terraform.
 
 - [Summary](./summery/Lesson6.md)
+
+### Lesson 7
+
+AWS CLI, S3, EC2, IAM, Terraform, Lambda, API Gateway, DynamoDB, Kinesis.
+
+- [Summary](./summery/Lesson7.md)
 
 ## Exercises
 
